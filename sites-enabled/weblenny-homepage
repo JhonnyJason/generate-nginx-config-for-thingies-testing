@@ -1,0 +1,12 @@
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name www.weblenny.at weblenny.at;
+
+    location / {
+        root /srv/http/weblenny-homepage;
+        index index.html;
+    }
+
+}

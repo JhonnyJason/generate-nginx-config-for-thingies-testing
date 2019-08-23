@@ -1,0 +1,10 @@
+server {
+    listen 65531;
+
+    server_name citysearch.weblenny.at;
+
+    location / {
+        proxy_pass http://unix:/run/citysearch-socket.sk;
+    }
+
+}
