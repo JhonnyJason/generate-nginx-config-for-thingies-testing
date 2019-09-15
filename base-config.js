@@ -16,18 +16,18 @@ config.thingies = [
             "/root/test-machine1-output/installer.js update;"
         ]
     }
-    // ,
-    // {
-    //     homeUser: "webhook-handler",
-    //     repository: "webhook-handler",
-    //     branch: "release",
-    //     type:"service",
-    //     socket: true,
-    //     port: 65531,
-    //     updateCode: [
-    //         "sudo -u webhook-handler -H sh -c 'cd /home/webhook-handler/webhook-handler; git pull origin release'"
-    //     ]
-    // }
+    ,
+    {
+        homeUser: "webhook-handler",
+        repository: "webhook-handler",
+        branch: "release",
+        type:"service",
+        socket: true,
+        outsidePort: 65531,
+        updateCode: [
+            "sudo -u webhook-handler -H sh -c 'cd /home/webhook-handler/webhook-handler; git pull origin release'"
+        ]
+    }
 ]
 
 module.exports = config;
