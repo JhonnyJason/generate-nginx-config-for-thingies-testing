@@ -11,6 +11,7 @@ var allMachineThingies = [
     {
         homeUser: "weblenny-homepage",
         type:"website",
+        searchIndexing: true,
         dnsNames: ["www.weblenny.at", "weblenny.at"]
     },
     {
