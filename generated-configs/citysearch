@@ -5,6 +5,7 @@ server {
     server_name citysearch.weblenny.at;
 
     location / {
+        add_header  X-Robots-Tag "noindex, nofollow, nosnippet, noarchive";
         proxy_pass http://localhost:3002;
     }
 
