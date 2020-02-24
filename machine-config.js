@@ -18,6 +18,8 @@ var allMachineThingies = [
         homeUser: "citysearch",
         type:"service",
         port: "3002",
+        broadCORS: true,
+        upgradeWebsocket: true,
         dnsNames: ["citysearch.weblenny.at"]
     },
     // {

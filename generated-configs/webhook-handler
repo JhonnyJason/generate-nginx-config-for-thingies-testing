@@ -2,8 +2,13 @@ server {
     listen 65531;
 
     location / {
+
+########## Tell the Robots: No Indexing!
         add_header  X-Robots-Tag "noindex, nofollow, nosnippet, noarchive";
+
+########## ProxyPass to service at unix Socket
         proxy_pass http://unix:/run/webhook-handler.sk;
+
     }
 
 }
