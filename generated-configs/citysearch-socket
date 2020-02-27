@@ -1,9 +1,10 @@
 server {
-    listen 65531;
+    listen 65530;
 
     server_name citysearch.weblenny.at;
 
     location / {
+        limit_except GET POST OPTIONS { deny all; }
 
 ########## Tell the Robots: No Indexing!
         add_header  X-Robots-Tag "noindex, nofollow, nosnippet, noarchive";
