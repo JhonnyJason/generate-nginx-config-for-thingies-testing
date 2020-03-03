@@ -4,19 +4,17 @@ server {
 
     server_name www.weblenny.at weblenny.at;
 
+###### Our document-root
+    root /srv/http/weblenny-homepage;
+
+###### Removing .html extension
+    if ($request_uri ~ ^/(.*)\.html$) { return 301 /$1; }
+
+###### Handling of all regular requests - Website
     location / {
-
-########## Removing .html extension
-        if ($request_uri ~ ^/(.*)\.html$) {
-            return 301 /$1;
-        }
-        try_files $uri $uri.html $uri/ =404;
-
-        gzip_static on;
         limit_except GET { deny all; }
-        root /srv/http/weblenny-homepage;
-        index index.html;
-
+        gzip_static on;
+        try_files $uri $uri.html $uri/ =404;
     }
 
 }

@@ -1,11 +1,14 @@
 server {
     listen 65530;
+    listen [::]:65530;
 
+
+###### Tell the Robots: No Indexing!
+    add_header  X-Robots-Tag "noindex, nofollow, nosnippet, noarchive";
+
+###### Handling of all regular requests - SocketService
     location / {
-        limit_except GET POST OPTIONS { deny all; }
-
-########## Tell the Robots: No Indexing!
-        add_header  X-Robots-Tag "noindex, nofollow, nosnippet, noarchive";
+        limit_except POST { deny all; }
 
 ########## ProxyPass to service at unix Socket
         proxy_pass http://unix:/run/webhook-handler.sk;
